@@ -10,14 +10,6 @@
   version = "v0.1.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:e0cac8cbe2a01d680e9fd1beed12042296ceaa5c393284702dbd91b75c65e19e"
-  name = "github.com/gin-gonic/contrib"
-  packages = ["static"]
-  pruneopts = "UT"
-  revision = "35076c1b2beaf5f26634fe6468bce6707c3d880a"
-
-[[projects]]
   digest = "1:249eec71412b5d3bb94374292ccbc81a1e8314cd2c6b2c830add3357e6c4b842"
   name = "github.com/gin-gonic/gin"
   packages = [
@@ -29,6 +21,14 @@
   pruneopts = "UT"
   revision = "15ced05c5316609bce5b43389f8e3f06102a8b18"
   version = "v1.5.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:d0557c61d3acd22f04f7b6b675b847381034b229b7dce10b1d31bfa0d7f30017"
+  name = "github.com/go-errors/errors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "d98b870cc4e05f1545532a80e9909be8216095b6"
 
 [[projects]]
   digest = "1:e1cbe9ce835f515ce57500b8db6b94f399650bea2ddfac59f9b05d98db77a96d"
@@ -133,8 +133,8 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/gin-gonic/contrib/static",
     "github.com/gin-gonic/gin",
+    "github.com/go-errors/errors",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
