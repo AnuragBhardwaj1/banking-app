@@ -1,17 +1,22 @@
 package handler
 
-//type Login struct {
-//    User     string `form:"user" json:"user" binding:"required"`
-//    Password string `form:"password" json:"password" binding:"required"`
-//}
-
+//make sure:> `form:"user" json:"user" binding:"required"`, is there.(binding, form). Also use mustBindJson is used.
 type Registration struct {
-    User     string `form:"user" json:"user" binding:"required"`
+    UserName string `form:"user" json:"user" binding:"required"`
     Email    string `form:"email" json:"email" binding:"required"`
     Password string `form:"password" json:"password" binding:"required"`
 }
 
 type Login struct {
-    User     string `form:"user" json:"user" xml:"user"  binding:"required"`
+    Email     string `form:"email" json:"email" xml:"email"  binding:"required"`
     Password string `form:"password" json:"password" xml:"password" binding:"required"`
+}
+
+type CreateAccountDetails struct {
+    Amount string `form:"amount" json:"amount" xml:"amount" binding:"required"`
+}
+
+
+type ApiKeyHeader struct {
+    ApiKey string `header:"ApiKey"`
 }

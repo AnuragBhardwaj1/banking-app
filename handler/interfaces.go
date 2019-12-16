@@ -1,11 +1,20 @@
 package handler
 
-import(
-  "banking-app/models"
-  _ "github.com/go-errors/errors"
+import (
+    "banking-app/services"
+    _ "github.com/go-errors/errors"
 )
 
 type UserService interface {
-    CreateUser(user models.User) error
-    GetUser() (models.User, error)
+    CreateUser(*services.CreateUserRequest) error
+    GetUsers(apiKey string) ([]*services.User, error)
+}
+
+
+type SessionService interface {
+    AcquireSession(services.LoginRequest) (string, error)
+}
+
+type AccountService interface {
+    Create(services.CreateAccountRequest) error
 }

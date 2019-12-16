@@ -5,3 +5,13 @@ type User struct {
     Email  string
     ApiKey string
 }
+
+type LoginRequest struct {
+    Email    string
+    Password string
+}
+
+type CreateAccountRequest struct {
+    ApiKey string
+    Amount float64
+}
