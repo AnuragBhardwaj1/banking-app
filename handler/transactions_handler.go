@@ -21,10 +21,4 @@ func (this *transactionsHandler)GetTransaction(context *gin.Context) {
 func (this *transactionsHandler)CreateTransaction(context *gin.Context) {
 
 }
-func (this *transactionsHandler) PatchTransaction(context *gin.Context) {
 
-}
-
-func (this *transactionsHandler)DeleteTransaction(context *gin.Context) {
-
-}

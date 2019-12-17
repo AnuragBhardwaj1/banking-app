@@ -34,14 +34,6 @@ func (this *usersHandler) CreateUser(ctx *gin.Context) {
     ctx.JSON(http.StatusOK, gin.H{"status": "ok"})
 }
 
-func (usersHandler *usersHandler) buildCreateUserRequest(registrationDetails *Registration) *services.CreateUserRequest {
-    return &services.CreateUserRequest{
-        Email:    registrationDetails.Email,
-        Password: registrationDetails.Password,
-        UserName: registrationDetails.UserName,
-    }
-}
-
 func (this *usersHandler) GetUsers(ctx *gin.Context) {
     var apiKeyHeader ApiKeyHeader
 
@@ -61,8 +53,12 @@ func (this *usersHandler) GetUsers(ctx *gin.Context) {
 }
 
 func (this *usersHandler) GetUser(ctx *gin.Context)    {}
+
 func (this *usersHandler) PatchUser(ctx *gin.Context)  {}
-func (this *usersHandler) DeleteUser(ctx *gin.Context) {}
+
+
+//--------------------------------------------------
+
 
 func (this *usersHandler) mapToDto(usersdao []*services.User) []UserInfo {
     var usersDto []UserInfo
@@ -77,5 +73,12 @@ func (this *usersHandler) mapToDto(usersdao []*services.User) []UserInfo {
     return usersDto
 }
 
-//--------------------------------------------------
+func (usersHandler *usersHandler) buildCreateUserRequest(registrationDetails *Registration) *services.CreateUserRequest {
+    return &services.CreateUserRequest{
+        Email:    registrationDetails.Email,
+        Password: registrationDetails.Password,
+        UserName: registrationDetails.UserName,
+    }
+}
+
 
