@@ -3,6 +3,7 @@ package services
 import (
     "banking-app/models"
     "banking-app/providers"
+    "banking-app/repositories"
 )
 
 type UserRepository interface {
@@ -15,8 +16,13 @@ type UserRepository interface {
 
 type AccountRepository interface {
     Add(user *models.Account) error
+    Get(id int) (*models.Account, error)
 }
 
 type AuthProvider interface {
     AcquireSession(credentials providers.Credentials) (error, string)
+}
+
+type TransactionRepository interface {
+    Create(repositories.CreateTransactionRequest) error
 }

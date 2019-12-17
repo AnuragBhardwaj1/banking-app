@@ -15,3 +15,10 @@ type CreateAccountRequest struct {
     ApiKey string
     Amount float64
 }
+
+type CreateTransactionRequest struct {
+    ApiKey        string
+    Amount        float64
+    FromAccountId int
+    ToAccountId   int
+}

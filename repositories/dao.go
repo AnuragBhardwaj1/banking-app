@@ -16,7 +16,14 @@ type readUserDao struct {
 }
 
 type readUsersDao struct {
-    name     string
-    email    string
-    apiKey   string
+    name   string
+    email  string
+    apiKey string
+}
+
+type CreateTransactionRequest struct {
+    UserId        int
+    FromAccountId int
+    ToAccountId   int
+    Amount        float64
 }

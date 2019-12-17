@@ -18,3 +18,7 @@ type SessionService interface {
 type AccountService interface {
     Create(services.CreateAccountRequest) error
 }
+
+type TransactionService interface {
+    Create(string, services.CreateTransactionRequest) error
+}
