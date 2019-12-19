@@ -30,8 +30,8 @@ func (this *accountsRepository) Add(account *models.Account) error {
 func (this *accountsRepository) Get(id int) (*models.Account, error) {
     var account models.Account
     db := this.db.Connect()
-    query := fmt.Sprintf("SELECT id, user_id, amount FROM accounts")
-    err := db.QueryRow(query).Scan(&account.Id, &account.UserId, account.Amount)
+    query := fmt.Sprintf("SELECT id, user_id, amount FROM accounts where id='%d'", id)
+    err := db.QueryRow(query).Scan(&account.Id, &account.UserId, &account.Amount)
     if err != nil {
         return &models.Account{}, err
     }

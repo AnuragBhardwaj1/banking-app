@@ -14,16 +14,20 @@ func NewTransactionsHandler() *transactionsHandler {
     return &transactionsHandler{transactionService: services.NewTransactionsService()}
 }
 
-func (this *transactionsHandler)GetTransactions(ctx *gin.Context) {
+func (this *transactionsHandler)GetTransactions(ctx *gin.Context) {}
+
+func (this *transactionsHandler)GetTransaction(ctx *gin.Context) {}
+
+func (this *transactionsHandler)CreateTransaction(ctx *gin.Context) {
     var apiKeyHeader ApiKeyHeader
     var createTransactionRequest services.CreateTransactionRequest
 
-    if err := ctx.ShouldBindHeader(apiKeyHeader); err != nil {
+    if err := ctx.ShouldBindHeader(&apiKeyHeader); err != nil {
         ctx.JSON(http.StatusUnauthorized, gin.H{"error": err})
         return
     }
 
-    if err := ctx.ShouldBindJSON(createTransactionRequest); err != nil {
+    if err := ctx.ShouldBindJSON(&createTransactionRequest); err != nil {
         ctx.JSON(http.StatusBadRequest, gin.H{"error": err})
     }
 
@@ -38,13 +42,5 @@ func (this *transactionsHandler)GetTransactions(ctx *gin.Context) {
         return
     }
     ctx.JSON(http.StatusCreated, gin.H{"msg": "Successfully Transferred amount"})
-}
-
-func (this *transactionsHandler)GetTransaction(ctx *gin.Context) {
-
-}
-
-func (this *transactionsHandler)CreateTransaction(ctx *gin.Context) {
-
 }
 
